@@ -1,0 +1,13 @@
+pandas 
+requests 
+beautifulsoup4 
+sqlalchemy 
+psycopg2-binary 
+python-dateutil 
+dateparser 
+google-generativeai
+html5lib
+datetime
+scikit-learn
+langdetect 
+nltk
