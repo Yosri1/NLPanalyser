@@ -46,7 +46,7 @@ def process_job_data():
     final_melted = melt_dataframe_columns(merged_dataframe, columns_to_explode)
     
     # Save to database
-    final_melted.to_csv('saved_data.csv')
+    final_melted.to_excel('saved_data.xlsx')
     #final_melted.to_sql('Analysed_results', engine, if_exists='replace', index=False)
     print("Data successfully stored in Neon PostgreSQL!")
 
