@@ -36,7 +36,7 @@ JOB_CATEGORIES = {
     ]
 }
 
-def setup_gemini(api_key: str, model_name: str = 'gemini-1.5-flash') -> genai.GenerativeModel:
+def setup_gemini(api_key: str, model_name: str = 'gemini-2.0-flash') -> genai.GenerativeModel:
     """Set up Gemini API client."""
     logger.info("Setting up Gemini API client")
     if not api_key:

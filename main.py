@@ -3,6 +3,7 @@ import pandas as pd
 from config.config import DATABASE_URL, GOOGLE_API_KEY
 from nlp.gemini_nlp import setup_gemini, job_analysis, process_json_list
 from utils.db_utils import get_engine
+import time
 
 def melt_dataframe_columns(df, columns_to_explode):
     """Melt specified columns of a DataFrame, handling lists."""
@@ -36,7 +37,11 @@ def process_job_data():
     
     # Perform NLP analysis
     analysis_results = [job_analysis(desc, model) for desc in df['Description']]
+    time.sleep(3)  # Add 2-second delay between each request
+
     cleaned_json_data = process_json_list(analysis_results)
+    time.sleep(3)  # Add 2-second delay between each request
+
     
     # Merge and melt data
     df_a = pd.DataFrame(cleaned_json_data)
@@ -52,3 +57,5 @@ def process_job_data():
 
 if __name__ == "__main__":
     process_job_data()
+    time.sleep(3)  # Add 2-second delay between each request
+
