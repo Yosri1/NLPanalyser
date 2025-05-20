@@ -65,9 +65,11 @@ def job_analysis(job_description: str, model: genai.GenerativeModel) -> str:
 **Guidelines:**
 - Ensure all extracted information is in English, regardless of the job description's language.
 - For 'job_category', return only the specific job role (e.g., "auditor", "Business Analyst"), not the major category (e.g., "Accounting").
-- Keep "company_sector", "company_size", and "educational_qualifications" concise (1-2 words, e.g., "Technology", "SME", "Bachelor’s").
+- Keep "company_sector" concise max 2 words,
+- Keep  "company_size" a choice between 4 options ["Startup", "Small", "Meduim","Large"]
+- Keep educational_qualifications" choice between 3 options []"Bachelors" ,"Masters" , "Other"]
 - Extract "technical_skills" and "behavioral_skills" as lists, with each skill described in 1-2 words (e.g., "Python", "Teamwork").
-- For "years_of_experience", extract a specific number or range (e.g., "3-5") if provided; otherwise, use "null".
+- For "years_of_experience", extract a specific number (float in years) if provided; otherwise, use "null".
 - For "certifications" and "languages", list specific entries (e.g., "AWS Certified", "French") or use "null" if none are mentioned.
 - If the job description is empty, vague, or missing details, return "null" for all fields except "job_category", which should be "Other".
 - Ensure the output is valid JSON without code block markers.
